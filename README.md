@@ -1,4 +1,4 @@
-# Movida-locadora-de-carros
+# CRUD_com_interface_em_GTK
 
 <img src="imagem.png" alt="Imagem da interface gráfica">
 
@@ -22,9 +22,9 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - [Como instalar o GTK](https://www.gtk.org/docs/installations/windows).
 - Indique os caminhos dos compiladores nas variáveis de ambiente, em patch.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando <CRUD_com_interface_em_GTK>
 
-Para instalar o <movida-locadora-de-carros>, siga estas etapas:
+Para instalar o <CRUD_com_interface_em_GTK>, siga estas etapas:
 
 Windows:
 
@@ -42,9 +42,9 @@ os caminhos do arquivo e compilador no arquivo `<tasks.json>`, `<launch.json>`, 
 ```
 4º: Após isso será carregado o arquivo main.exe, no caminho onde você direcionou, execute ele e estará pronto para uso.
 
-## ☕ Usando <movida-locadora-de-carros>
+## ☕ Usando <CRUD_com_interface_em_GTK>
 
-Para usar <movida-locadora-de-carros>, siga estas etapas:
+Para usar <CRUD_com_interface_em_GTK>, siga estas etapas:
 
 ```
 <Clique no botão de acordo com a função desejada e execute as funções no prompt de comando>
