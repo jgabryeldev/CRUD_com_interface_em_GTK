@@ -27,13 +27,13 @@ typedef struct {
 GUI initialize_gui();
 
 // Protótipos das funções do CRUD
-void cadastroAluguel(struct reg_cliente *aluguel);
+void cadastroAluguel(void);
 void localizarAlugueis(void);
 void apagarAlugueis(void);
 void updateAlugueis(void);
 
 // Callbacks para os botões
-void cadastro_button_clicked(gpointer data);
+void cadastro_button_clicked(GtkWidget *widget);
 void ver_alugueis_button_clicked(GtkWidget *widget);
 void apagar_alugueis_button_clicked(GtkWidget *widget);
 void atualizar_alugueis_button_clicked(GtkWidget *widget);
@@ -57,17 +57,17 @@ GUI initialize_gui() {
 
     // Criação da janela principal
     gui.window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(gui.window), "Movida - Locadora de Carros");
+    gtk_window_set_title(GTK_WINDOW(gui.window), "Locadora de Carros");
     gtk_container_set_border_width(GTK_CONTAINER(gui.window), 10);
     gtk_widget_set_size_request(gui.window, 300, 200);
     g_signal_connect(gui.window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
     // Criação dos botões
-    gui.button_cadastro = gtk_button_new_with_label("Cadastro");
-    gui.button_ver_alugueis = gtk_button_new_with_label("Ver Alugueis");
-    gui.button_apagar_alugueis = gtk_button_new_with_label("Apagar Alugueis");
-    gui.button_atualizar_alugueis = gtk_button_new_with_label("Atualizar Alugueis");
-    gui.button_encerrar = gtk_button_new_with_label("Encerrar");
+    gui.button_cadastro = gtk_button_new_with_label("CADASTRAR CLIENTE");
+    gui.button_ver_alugueis = gtk_button_new_with_label("VER ALUGUEIS");
+    gui.button_apagar_alugueis = gtk_button_new_with_label("APAGAR ALUGUEIS");
+    gui.button_atualizar_alugueis = gtk_button_new_with_label("ATUALIZAR ALUGUEIS");
+    gui.button_encerrar = gtk_button_new_with_label("ENCERRAR");
 
     // Adição dos botões à janela
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
@@ -94,28 +94,29 @@ GUI initialize_gui() {
 // Implementação das funções do CRUD
 
 
-void cadastroAluguel(struct reg_cliente *aluguel) {
+void cadastroAluguel() {
+  struct reg_cliente clientes;
       FILE *arquivo = fopen("alugueis.txt", "a");
   if (arquivo == NULL) {
     printf("Erro ao abrir o arquivo para escrita.\n");
   } else {
     printf("\nCadastro de Cliente");
     printf("\nDigite o seu nome completo:  ");
-      scanf("%s", aluguel -> nome);
+      scanf("%s", clientes.nome);
     printf("\nQual o tipo de carro que deseja alugar ?: ");
-      scanf("%s", aluguel -> tipo_carro);
+      scanf("%s", clientes.tipo_carro);
     printf("\nQual a marca de carro que deseja alugar ?: ");
-      scanf("%s", aluguel -> marca_carro);
+      scanf("%s", clientes.marca_carro);
     printf("\nDigite a quantidade de carro que deseja alugar: ");
-      scanf("%d", &aluguel->quantidade);
+      scanf("%d", &clientes.quantidade);
     printf("\nDigite o seu tipo de cliente:\n\n1 - Cliente comum | 2 - Cliente "
            "Prata | 3 - Cliente Ouro\n\nClientes Prata tem 10%% de desconto e "
            "Clientes Ouro tem 20%% de desconto: ");
-      scanf("%d", &aluguel->tipo_cliente);
-    fprintf(arquivo, "%s %s %s %d %d\n", aluguel->nome, aluguel -> tipo_carro, aluguel -> marca_carro, aluguel -> quantidade, aluguel -> tipo_cliente);
-    fclose(arquivo);
-      printf("\nArquivo gravado com sucesso!\n");
+      scanf("%d", &clientes.tipo_cliente);
+    fprintf(arquivo, "%s %s %s %d %d\n", clientes.nome, clientes.tipo_carro, clientes.marca_carro, clientes.quantidade, clientes.tipo_cliente);
+    printf("\nArquivo gravado com sucesso!\n");
   }
+    fclose(arquivo);
 }
 
 void detalhesAlugueis(struct reg_cliente *aluguel) {
@@ -165,7 +166,6 @@ void localizarAlugueis(void) {
         } else {
             printf("Opção inválida.\n");
         }
-
         fclose(arquivo);
     }
 }
@@ -257,9 +257,10 @@ void updateAlugueis(void) {
 
 // Implementação dos callbacks
 
-void cadastro_button_clicked(gpointer data) {
-    GUI *gui = (GUI *)data;
-    cadastroAluguel(&gui->aluguel);
+void cadastro_button_clicked(GtkWidget *widget) {
+    cadastroAluguel();
+    // remove a referência não utilizada para evitar o aviso de variável não utilizada
+    (void)widget;
 }
 
 void ver_alugueis_button_clicked(GtkWidget *widget) {
