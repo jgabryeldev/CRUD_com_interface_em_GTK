@@ -20,6 +20,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou os `<compilador de C / GTK / python e tkinter>`
 - [Como instalar o GTK](https://www.gtk.org/docs/installations/windows).
+- Indique os caminhos dos compiladores nas variáveis de ambiente, em patch.
 
 ## 🚀 Instalando <nome_do_projeto>
 
@@ -29,13 +30,17 @@ Windows:
 
 1º: Baixe os arquivos do programa
 
-2º: Após todas as intalações de compiladores de forma correnta, execute no `<MSYS2 MINGW64>`
+2º: Se for usar o utilizar o VsCode `<Recomendo executar diretamente no MSYS2, como informarei abaixo>`, não esqueça de mudar
+os caminhos do arquivo e compilador no arquivo `<tasks.json>`, `<launch.json>`, `<c_cpp_properties.json>`
+
+3º: Após todas as intalações de compiladores de forma correnta, execute no `<MSYS2 MINGW64>`
 
 `<ALTERE O CAMINHO DO ARQUIVO NO COMANDO, COMO INDICADO>`
 
 ```
 <gcc -Wall -Wextra -g3 -o "caminho_do_arquivo/main.exe" "caminho_do_arquivo/main.c" pkg-config --cflags --libs gtk+-3.0>
 ```
+4º: Após isso será carregado o arquivo main.exe, no caminho onde você direcionou, execute ele e estará pronto para uso.
 
 ## ☕ Usando <movida-locadora-de-carros>
 
@@ -45,7 +50,7 @@ Para usar <movida-locadora-de-carros>, siga estas etapas:
 <Clique no botão de acordo com a função desejada e execute as funções no prompt de comando>
 ```
 
-## 🤝 Colaboradores
+## 🤝 Colaborador
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
