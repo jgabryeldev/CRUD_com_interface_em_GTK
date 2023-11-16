@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/jgabr/OneDrive/Área de Trabalho/TRABALHO PROG II",
-      "program": "c:/Users/jgabr/OneDrive/Área de Trabalho/TRABALHO PROG II/build/Debug/outDebug",
+      "cwd": "c:/Users/jgabr/OneDrive/Documentos/GitHub/movida-locadora-de-carros",
+      "program": "c:/Users/jgabr/OneDrive/Documentos/GitHub/movida-locadora-de-carros/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
