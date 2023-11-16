@@ -258,23 +258,27 @@ void updateAlugueis(void) {
 // Implementação dos callbacks
 
 void cadastro_button_clicked(GtkWidget *widget) {
+    system("cls");
     cadastroAluguel();
     // remove a referência não utilizada para evitar o aviso de variável não utilizada
     (void)widget;
 }
 
 void ver_alugueis_button_clicked(GtkWidget *widget) {
+    system("cls");
     localizarAlugueis();
     // remove a referência não utilizada para evitar o aviso de variável não utilizada
     (void)widget;
 }
 
 void apagar_alugueis_button_clicked(GtkWidget *widget) {
+    system("cls");
     apagarAlugueis();
     (void)widget;
 }
 
 void atualizar_alugueis_button_clicked(GtkWidget *widget) {
+    system("cls");
     updateAlugueis();
     (void)widget;
 }
